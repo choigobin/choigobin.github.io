@@ -98,7 +98,7 @@
                 <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-            <img class="img-fluid" src="img/HRD1007/HRD1007_03.JPG" alt="">
+            <img class="img-fluid" src="img/CET/cet01.JPG" alt="정보처리산업기사 과정평가형 연습">
           </div>
         </div>
 
@@ -314,7 +314,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">JSP,Oracle,JavaScript</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Course Evaluation Type</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -324,18 +324,519 @@
                   <div class="divider-custom-line"></div>
                 </div>
                 <!-- Portfolio Modal - Image -->
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_01.JPG" alt="">
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_02.JPG" alt="">
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_03.JPG" alt="">
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_04.JPG" alt="">
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_05.JPG" alt="">
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_06.JPG" alt="">
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_07.JPG" alt="">
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_08.JPG" alt="">
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_09.JPG" alt="">
-                <img class="img-fluid rounded mb-5" src="img/HRD1007/HRD1007_10.JPG" alt="">
+                <img class="img-fluid rounded mb-5" src="img/CET/cet02.JPG" alt="">
+                <img class="img-fluid rounded mb-5" src="img/CET/cet03.JPG" alt="">
+                <img class="img-fluid rounded mb-5" src="img/CET/cet04.JPG" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">JSP,JavaScript,Oracle 사용 SQL(selcet,insert) 기능 구현</p>
+                <p class="mb-5"><h3>Source</h1></p><hr>
+<h4>dbconn.jsp</h4>
+<pre><code>
+&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+pageEncoding="UTF-8"%&gt;
+&lt;%@ page import="java.sql.*"%&gt;
+&lt;%
+request.setCharacterEncoding("UTF-8");
+String url = "jdbc:oracle:thin:@//localhost:1521/testdb";
+String user = "scott";
+String password = "1234";
+
+Connection conn = null;
+PreparedStatement pstmt = null;
+ResultSet rs = null;
+
+Class.forName("oracle.jdbc.OracleDriver");
+conn = DriverManager.getConnection(url, user, password);
+ %&gt;
+
+</code></pre><hr>
+<h4>header.jsp</h4>
+<pre><code>
+&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;style&gt;
+#tb1 {
+		height:100%; width:100%;
+		border: 0px;
+		border-collapse: collapse;
+		}
+table{
+	border: solid black 1px;
+	border-collapse: separate;
+	}
+#t1 {
+	border: 0px;
+	}
+tr,td,th{
+	border: solid black 1px;
+	}
+a{
+	color:white;
+	text-decoration:none;
+}
+&lt;/style&gt;
+&lt;script type="text/javascript"&gt;
+function insert1() {
+	if(document.insert.custname.value==""){
+		alert("회원 성명이 입력되지 않았습니다.");
+		document.insert.custname.focus();
+	}
+	else{
+		document.insert.submit();
+	}
+}
+
+&lt;/script&gt;
+&lt;title&gt;쇼핑몰 회원관리&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;table id="tb1"&gt;
+&lt;tr id="t1" height="10%"&gt;&lt;%-- header --%&gt;
+	&lt;td id="t1" bgcolor="blue" align="center"&gt;
+		&lt;span style="font-size:20px; color:white;"&gt;쇼핑몰 회원관리 ver1.0&lt;/span&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id="t1" height="5%"&gt;&lt;%-- nav --%&gt;
+	&lt;td id="t1" bgcolor="skyblue" align="left"&gt;
+		&lt;span style="color:white;"&gt;
+			&nbsp&nbsp&nbsp&nbsp
+			&lt;a href="insert.jsp"&gt;회원등록&lt;/a&gt;
+			&nbsp&nbsp&nbsp&nbsp
+			&lt;a href="select.jsp"&gt;회원목록조회/수정&lt;/a&gt;
+			&nbsp&nbsp&nbsp&nbsp
+			&lt;a href="money.jsp"&gt;회원매출조회&lt;/a&gt;
+			&nbsp&nbsp&nbsp&nbsp
+			&lt;a href="index.jsp"&gt;홈으로&lt;/a&gt;
+		&lt;/span&gt;
+	&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr id="t1"&gt;
+	&lt;td id="t1" bgcolor="gray" valign="top"&gt;  
+</code></pre><hr>
+<h4>footer.jsp</h4>
+<pre><code>
+    &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr id="t1" height="5%"&gt;&lt;%-- footer --%&gt;
+      &lt;td id="t1" bgcolor="blue" align="center"&gt;
+        &lt;span style="color:white;"&gt;HRDKOREA 한국&lt;/span&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;/body&gt;
+    &lt;/html&gt;
+    &lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+        pageEncoding="UTF-8"%&gt;  
+</code></pre><hr>
+<h4>index.jsp</h4>
+<pre><code>
+&lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+&lt;%@include file="header.jsp" %&gt;
+	&lt;br /&gt;
+	&lt;h3 align="center"&gt;쇼핑몰 회원관리 프로그램&lt;/h3&gt;
+	&lt;br /&gt;
+	쇼핑몰 회원정보와 회원매출정보 데이터베이스를 구축하고 회원관리 프로그램을 작성하는 프로그램이다.&lt;br&gt;
+	프로그램 작성 순서&lt;br&gt;
+	1. 회원정보 테이블을 생성한다.&lt;br&gt;
+	2. 매출정보 테이블을 생선한다.&lt;br&gt;
+	3. 회원정보, 매출정보 테이블에서 제시된 문제지의 참조데이터를 추가 생성한다.
+	4. 회원정보 조회 프로그램을 작성한다.&lt;br&gt;
+	5. 회원매출정보 조회 프로그램을 작성한다.&lt;br&gt;
+&lt;%@include file="footer.jsp" %&gt;  
+</code></pre><hr>
+<h4>insert.jsp</h4>
+<pre><code>
+    &lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+&lt;%@include file="header.jsp" %&gt;
+&lt;%@include file="dbconn.jsp" %&gt;
+&lt;%
+	int number = 0;
+	String sql = "select custno from member_tbl_02 order by custno desc";
+	try{
+		pstmt=conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		if(rs.next()){
+			number = rs.getInt(1)+1;
+		}
+	}catch(SQLException e){
+		e.getMessage();
+	}finally{
+		if(rs!=null){rs.close();}
+		if(pstmt!=null){pstmt.close();}
+		if(conn!=null){conn.close();}
+	}
+%&gt;
+	&lt;br /&gt;
+	&lt;h3 align="center"&gt;홈쇼핑 회원 등록&lt;/h3&gt;
+	&lt;br /&gt;
+	&lt;form action="process_insert.jsp" name="insert"&gt;
+	&lt;table align="center"&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원정보(자동발생)&lt;/th&gt;
+			&lt;td width="300"&gt;
+				&lt;input type="text" size=10; name="custno" value="&lt;%=number%&gt;"&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원성명&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=10; name="custname"&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원전화&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=20; name="phone"&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원주소&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=30; name="address"&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;가입일자&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=10; name="joindate"&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;고객등급[A:VIP,B:일바,C:직원]&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=10; name="grade"&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;도시코드&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=10; name="city"&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td colspan="2" align="center"&gt;
+				&lt;input type="button" value="등록" onclick="javascript:insert1()"&gt;
+				&lt;input type="button" value="조회" onclick="location.href='select.jsp'"&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+	&lt;/form&gt;
+&lt;%@include file="footer.jsp" %&gt;  
+</code></pre><hr>
+<h4>select.jsp</h4>
+<pre><code>
+    &lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+&lt;%@include file="header.jsp" %&gt;
+&lt;%@include file="dbconn.jsp" %&gt;
+	&lt;br /&gt;
+	&lt;h3 align="center"&gt;회원목록조회/수정&lt;/h3&gt;
+	&lt;br /&gt;
+	&lt;form action="process_insert.jsp" name="insert"&gt;
+	&lt;table align="center"&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원번호&lt;/th&gt;
+			&lt;th&gt;회원성명&lt;/th&gt;
+			&lt;th&gt;전화번호&lt;/th&gt;
+			&lt;th&gt;주소&lt;/th&gt;
+			&lt;th&gt;가입일자&lt;/th&gt;
+			&lt;th&gt;고객등급&lt;/th&gt;
+			&lt;th&gt;거주지역&lt;/th&gt;
+		&lt;/tr&gt;
+		&lt;%
+	String sql = "select custno,custname,phone,address,to_char(joindate,'yyyy-mm-dd'),grade,city from member_tbl_02 order by custno";
+	try{
+		pstmt=conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		while(rs.next()){
+			String custno = rs.getString(1);
+			String custname = rs.getString(2);
+			String phone = rs.getString(3);
+			String address = rs.getString(4);
+			String joindate = rs.getString(5);
+			String grade = rs.getString(6);
+			String city = rs.getString(7);
+			if(grade!=null){
+			switch(grade){
+			case "A" :
+				grade = "VIP";
+				break;
+			case "B" :
+				grade = "일반";
+				break;
+			case "C" :
+				grade = "직원";
+				break;
+			}}
+			%&gt;
+			&lt;tr&gt;
+				&lt;td align="center"&gt;
+					&lt;a href="update.jsp?custno=&lt;%=custno%&gt;"&gt;&lt;%=custno%&gt;&lt;/a&gt;
+				&lt;/td&gt;
+				&lt;td align="center"&gt;
+					&lt;%=custname%&gt;
+				&lt;/td&gt;
+				&lt;td align="center"&gt;
+					&lt;%=phone%&gt;
+				&lt;/td&gt;
+				&lt;td align="center"&gt;
+					&lt;%=address%&gt;
+				&lt;/td&gt;
+				&lt;td align="center"&gt;
+					&lt;%=joindate%&gt;
+				&lt;/td&gt;
+				&lt;td align="center"&gt;
+					&lt;%=grade%&gt;
+				&lt;/td&gt;
+				&lt;td align="center"&gt;
+					&lt;%=city%&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;%
+		}
+	}catch(SQLException e){
+		e.getMessage();
+	}finally{
+		if(rs!=null){rs.close();}
+		if(pstmt!=null){pstmt.close();}
+		if(conn!=null){conn.close();}
+	}
+%&gt;
+	&lt;/table&gt;
+	&lt;/form&gt;
+&lt;%@include file="footer.jsp" %&gt;  
+</code></pre><hr>
+<h4>update.jsp</h4>
+<pre><code>
+    &lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+&lt;%@include file="header.jsp" %&gt;
+&lt;%@include file="dbconn.jsp" %&gt;
+	&lt;%
+	String custno = request.getParameter("custno");
+	String custname ="", phone ="", address ="", joindate ="", grade ="", city = "";
+	try{
+		String sql = "select * from member_tbl_02 where custno = "+custno;
+		pstmt = conn.prepareStatement(sql);
+		rs=pstmt.executeQuery();
+		rs.next();
+		custno = rs.getString(1);
+		custname = rs.getString(2);
+		phone = rs.getString(3);
+		address = rs.getString(4);
+		joindate = rs.getString(5);
+		grade = rs.getString(6);
+		city = rs.getString(7);
+	}catch(SQLException e){
+		e.getMessage();
+		System.out.print("로딩 실패");
+	}finally{
+		if(rs != null){rs.close();}
+		if(pstmt != null){pstmt.close();}
+		if(conn != null){conn.close();}
+	}
+	%&gt;
+	&lt;br /&gt;
+	&lt;h3 align="center"&gt;홈쇼핑 회원 정보 수정&lt;/h3&gt;
+	&lt;br /&gt;
+	&lt;form action="process_update.jsp" name="insert"&gt;
+	&lt;table align="center"&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원정보(자동발생)&lt;/th&gt;
+			&lt;td width="300"&gt;
+				&lt;input type="text" size=10; name="custno" value=&lt;%=custno%&gt;&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원성명&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=10; name="custname" value=&lt;%=custname%&gt;&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원전화&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=20; name="phone" value=&lt;%=phone%&gt;&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원주소&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=30; name="address" value='&lt;%=address%&gt;'&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;가입일자&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=10; name="joindate" value=&lt;%=joindate%&gt;&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;고객등급[A:VIP,B:일바,C:직원]&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=10; name="grade" value=&lt;%=grade%&gt;&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;th&gt;도시코드&lt;/th&gt;
+			&lt;td&gt;
+				&lt;input type="text" size=10; name="city" value=&lt;%=city%&gt;&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td colspan="2" align="center"&gt;
+				&lt;input type="button" value="수정" onclick="javascript:insert1()"&gt;
+				&lt;input type="button" value="조회" onclick="location.href='select.jsp'"&gt;
+			&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/table&gt;
+	&lt;/form&gt;
+&lt;%@include file="footer.jsp" %&gt; 
+</code></pre><hr>
+<h4>money.jsp</h4>
+<pre><code>
+    &lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+&lt;%@include file="header.jsp" %&gt;
+&lt;%@include file="dbconn.jsp" %&gt;
+	&lt;br /&gt;
+	&lt;h3 align="center"&gt;회원매출조회&lt;/h3&gt;
+	&lt;br /&gt;
+	&lt;form action="process_insert.jsp" name="insert"&gt;
+	&lt;table align="center"&gt;
+		&lt;tr&gt;
+			&lt;th&gt;회원번호&lt;/th&gt;
+			&lt;th&gt;회원성명&lt;/th&gt;
+			&lt;th&gt;고객등급&lt;/th&gt;
+			&lt;th&gt;매출&lt;/th&gt;
+		&lt;/tr&gt;
+		&lt;%
+	String sql = "select m.custno, m.custname, m.grade, sum(price) as total from member_tbl_02 m join money_tbl_02 n on m.custno = n.custno group by (m.custno,m.custname,m.grade) order by total desc";
+		
+		try{
+		pstmt=conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+		while(rs.next()){
+			String custno = rs.getString(1);
+			String custname = rs.getString(2);
+			String grade = rs.getString(3);
+			String price = rs.getString(4);
+			if(grade!=null){
+			switch(grade){
+			case "A" :
+				grade = "VIP";
+				break;
+			case "B" :
+				grade = "일반";
+				break;
+			case "C" :
+				grade = "직원";
+				break;
+			}}
+			%&gt;
+			&lt;tr&gt;
+				&lt;td align="center"&gt;
+					&lt;%=custno%&gt;
+				&lt;/td&gt;
+				&lt;td align="center"&gt;
+					&lt;%=custname%&gt;
+				&lt;/td&gt;
+				&lt;td align="center"&gt;
+					&lt;%=grade%&gt;
+				&lt;/td&gt;
+				&lt;td align="center"&gt;
+					&lt;%=price%&gt;
+				&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;%
+		}
+	}catch(SQLException e){
+		e.getMessage();
+	}finally{
+		if(rs!=null){rs.close();}
+		if(pstmt!=null){pstmt.close();}
+		if(conn!=null){conn.close();}
+	}
+%&gt;
+	&lt;/table&gt;
+	&lt;/form&gt;
+&lt;%@include file="footer.jsp" %&gt; 
+</code></pre><hr>
+<h4>process_insert.jsp</h4>
+<pre><code>
+    &lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+&lt;%@ include file="dbconn.jsp" %&gt;
+&lt;%
+String a = request.getParameter("custno");
+String b = request.getParameter("custname");
+String c = request.getParameter("phone");
+String d = request.getParameter("address");
+String e = request.getParameter("joindate");
+String f = request.getParameter("grade");
+String g = request.getParameter("city");
+
+try{
+String sql = "insert into member_tbl_02 values(?,?,?,?,?,?,?)";
+pstmt = conn.prepareStatement(sql);
+pstmt.setString(1, a);
+pstmt.setString(2, b);
+pstmt.setString(3, c);
+pstmt.setString(4, d);
+pstmt.setString(5, e);
+pstmt.setString(6, f);
+pstmt.setString(7, g);
+pstmt.executeUpdate();
+out.print("&lt;script&gt;location.href='insert.jsp';alert('등록이 완료 되었습니다.');&lt;/script&gt;");
+}catch(SQLException s){
+	s.getMessage();
+	System.out.println("실패");
+}finally{
+	if(pstmt !=null) pstmt.close();
+	if(conn !=null) conn.close();
+}
+%&gt;  
+</code></pre><hr>
+<h4>process_update.jsp</h4>
+<pre><code>
+    &lt;%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%&gt;
+&lt;%@ include file="dbconn.jsp" %&gt;
+&lt;%
+String a = request.getParameter("custno");
+String b = request.getParameter("custname");
+String c = request.getParameter("phone");
+String d = request.getParameter("address");
+String e = request.getParameter("joindate");
+String f = request.getParameter("grade");
+String g = request.getParameter("city");
+
+try{
+String sql = "update member_tbl_02 SET custname = ?, phone = ?, address = ?, joindate = ?, grade = ?, city = ? where custno = ?";
+pstmt = conn.prepareStatement(sql);
+pstmt.setString(1, b);
+pstmt.setString(2, c);
+pstmt.setString(3, d);
+pstmt.setString(4, e);
+pstmt.setString(5, f);
+pstmt.setString(6, g);
+pstmt.setString(7, a);
+pstmt.executeUpdate();
+out.print("&lt;script&gt;history.back();alert('회원정보수정이 완료 되었습니다.');&lt;/script&gt;");
+}catch(SQLException s){
+	s.getMessage();
+	System.out.println("실패");
+}finally{
+	if(pstmt !=null) pstmt.close();
+	if(conn !=null) conn.close();
+}
+%&gt; 
+</code></pre>
+                <!-- Portfolio Modal - Text end-->
                 <button class="btn btn-primary" href="#" data-dismiss="modal">
                   <i class="fas fa-times fa-fw"></i>
                   Close Window
